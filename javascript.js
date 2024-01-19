@@ -42,7 +42,10 @@ function chooseWinner(){
             console.log("You lose! Rock beats scissors");
         }
         else{
-            console.log("Nobody wins!");
+            console.log("It's a tie! play again");
+            getComputerChoice();
+            getUserChoice();
+            chooseWinner();
         }
     }
     // computer chooses paper
@@ -54,7 +57,10 @@ function chooseWinner(){
             console.log("You lose! Paper beats rock");
         }
         else{
-            console.log("Nobody wins!");
+            console.log("It's a tie! play again");
+            getComputerChoice();
+            getUserChoice();
+            chooseWinner();
         }
     }
     // computer chooses scissors
@@ -66,7 +72,10 @@ function chooseWinner(){
             console.log("You lose! Scissors beats paper");
         }
         else{
-            console.log("Nobody wins!");
+            console.log("It's a tie! play again");
+            getComputerChoice();
+            getUserChoice();
+            chooseWinner();
         }
     }
 }
