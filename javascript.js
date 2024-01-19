@@ -8,10 +8,12 @@
 // 
 // 
 
+let randomNum = Math.floor(Math.random()*100);
+let computerInput;
+let userInput;
+
 function getComputerChoice(){
-    let randomNum = Math.floor(Math.random()*100);
     console.log(randomNum);
-    let computerInput;
     if (randomNum < 34){
         computerInput = "rock";
     }
@@ -24,4 +26,7 @@ function getComputerChoice(){
     console.log(computerInput);
 }
 
-getComputerChoice();
+function getUserChoice(){
+    userInput = prompt("Enter your choice: ");
+    console.log(userInput);
+}
