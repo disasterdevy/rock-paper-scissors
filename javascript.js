@@ -28,5 +28,49 @@ function getComputerChoice(){
 
 function getUserChoice(){
     userInput = prompt("Enter your choice: ");
+    userInput = userInput.toLowerCase();
     console.log(userInput);
 }
+
+function chooseWinner(){
+    // computer chooses rock
+    if (computerInput == "rock"){
+        if(userInput == "paper"){
+            console.log("You win! Paper beats rock");
+        }
+        else if(userInput == "scissors"){
+            console.log("You lose! Rock beats scissors");
+        }
+        else{
+            console.log("Nobody wins!");
+        }
+    }
+    // computer chooses paper
+    if (computerInput == "paper"){
+        if(userInput == "scissors"){
+            console.log("You win! Scissors beats paper");
+        }
+        else if(userInput == "rock"){
+            console.log("You lose! Paper beats rock");
+        }
+        else{
+            console.log("Nobody wins!");
+        }
+    }
+    // computer chooses scissors
+    if (computerInput == "scissors"){
+        if(userInput == "rock"){
+            console.log("You win! Rock beats scissors");
+        }
+        else if(userInput == "paper"){
+            console.log("You lose! Scissors beats paper");
+        }
+        else{
+            console.log("Nobody wins!");
+        }
+    }
+}
+
+getComputerChoice();
+getUserChoice();
+chooseWinner();
