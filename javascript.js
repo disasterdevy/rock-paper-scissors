@@ -16,7 +16,6 @@ let userWins = 0;
 
 function getComputerChoice(){
     randomNum = Math.floor(Math.random()*100);
-    console.log(randomNum);
     if (randomNum < 34){
         computerInput = "rock";
     }
@@ -26,16 +25,20 @@ function getComputerChoice(){
     else{
         computerInput = "scissors";
     }
-    console.log(computerInput);
 }
 
 function getUserChoice(){
     userInput = prompt("Enter your choice: ");
     userInput = userInput.toLowerCase();
-    console.log(userInput);
+}
+
+function displayChoice(){
+    console.log("Computer choice: ", computerInput,);
+    console.log("Your choice: ", userInput);
 }
 
 function chooseWinner(){
+    displayChoice();
     // computer chooses rock
     if (computerInput == "rock"){
         if(userInput == "paper"){
@@ -48,7 +51,6 @@ function chooseWinner(){
         }
         else{
             console.log("It's a tie! play again");
-            game();
         }
     }
     // computer chooses paper
@@ -63,7 +65,6 @@ function chooseWinner(){
         }
         else{
             console.log("It's a tie! play again");
-            game();
         }
     }
     // computer chooses scissors
@@ -78,7 +79,6 @@ function chooseWinner(){
         }
         else{
             console.log("It's a tie! play again");
-            game();
         }
     }
 }
@@ -88,7 +88,7 @@ function game(){
         getComputerChoice();
         getUserChoice();
         chooseWinner();
-        console.log(computerWins, userWins);
+        console.log("Computer wins: ", computerWins, "Your wins: ", userWins);
     }
     if (computerWins == 3){
         console.log("The machine has bested you!");
