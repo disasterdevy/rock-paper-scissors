@@ -27,8 +27,6 @@ function getComputerChoice(){
 const userButtons = document.querySelectorAll('button');
 console.log(userButtons);
 
-getComputerChoice();
-
 
 userButtons.forEach((button) =>{
     button.addEventListener("click", function storeInput(){
@@ -36,6 +34,9 @@ userButtons.forEach((button) =>{
         userInput = userInput.toLowerCase();
         console.log(userInput);
         button.value = "";
+        //getComputerChoice(); need to fix, userInput doesn't get stored
+        //chooseWinner();
+       //console.log("Computer wins: ", computerWins, "Your wins: ", userWins);
     })
  })
 
@@ -100,7 +101,8 @@ function chooseWinner(){
         getComputerChoice();
         getUserChoice();
         chooseWinner();
-        console.log("Computer wins: ", computerWins, "Your wins: ", userWins);
+        console.log(
+        "Computer wins: ", computerWins, "Your wins: ", userWins);
     }
     if (computerWins == 3){
         console.log("The machine has bested you!");
