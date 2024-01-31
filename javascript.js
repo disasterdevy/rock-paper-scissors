@@ -3,10 +3,6 @@
 // var for random number
 // match 1-33 to rock, 34-66 paper, 67-100 scissors
 // var for computer choice
-// 
-// 
-// 
-// 
 
 let randomNum;
 let computerInput;
@@ -25,12 +21,28 @@ function getComputerChoice(){
     else{
         computerInput = "scissors";
     }
+    console.log("Computer: ", computerInput);
 }
 
-function getUserChoice(){
+const userButtons = document.querySelectorAll('button');
+console.log(userButtons);
+
+getComputerChoice();
+
+
+userButtons.forEach((button) =>{
+    button.addEventListener("click", function storeInput(){
+        userInput = button.value;
+        userInput = userInput.toLowerCase();
+        console.log(userInput);
+        button.value = "";
+    })
+ })
+
+/* function getUserChoice(){
     userInput = prompt("Enter your choice: ");
     userInput = userInput.toLowerCase();
-}
+} */
 
 function displayChoice(){
     console.log("Computer choice: ", computerInput,);
@@ -83,7 +95,7 @@ function chooseWinner(){
     }
 }
 
-function game(){
+/* function game(){
     while(computerWins < 3 && userWins < 3){
         getComputerChoice();
         getUserChoice();
@@ -97,5 +109,5 @@ function game(){
         console.log("You bested the machine! Congratulations.");
     }
 }
-
 game();
+*/
