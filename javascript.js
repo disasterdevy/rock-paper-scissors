@@ -32,6 +32,8 @@ function getComputerChoice(){
 function displayChoice(){
     console.log("Computer choice: ", computerInput,);
     console.log("Your choice: ", userInput);
+    let resultString = "Computer choice: " + computerInput + "  | Your choice: " + userInput;
+    choicDiv.textContent = resultString;
 }
 
 function chooseWinner(){
@@ -39,43 +41,52 @@ function chooseWinner(){
     // computer chooses rock
     if (computerInput == "rock"){
         if(userInput == "paper"){
+            messageDiv.textContent ="You win! Paper beats rock";
             console.log("You win! Paper beats rock");
             userWins = ++userWins;
         }
         else if(userInput == "scissors"){
+            messageDiv.textContent ="You lose! Rock beats scissors";
             console.log("You lose! Rock beats scissors");
             computerWins = ++computerWins;
         }
         else{
+            messageDiv.textContent ="It's a tie! play again";
             console.log("It's a tie! play again");
         }
     }
     // computer chooses paper
     if (computerInput == "paper"){
         if(userInput == "scissors"){
+            messageDiv.textContent ="You win! Scissors beats paper";
             console.log("You win! Scissors beats paper");
             userWins = ++userWins;
         }
         else if(userInput == "rock"){
+            messageDiv.textContent ="You lose! Paper beats rock";
             console.log("You lose! Paper beats rock");
             computerWins = ++computerWins;
         }
         else{
             console.log("It's a tie! play again");
+            messageDiv.textContent ="It's a tie! play again";
         }
     }
     // computer chooses scissors
     if (computerInput == "scissors"){
         if(userInput == "rock"){
+            messageDiv.textContent ="You win! Rock beats scissors";
             console.log("You win! Rock beats scissors");
             userWins = ++userWins;
         }
         else if(userInput == "paper"){
+            messageDiv.textContent ="You lose! Scissors beats paper";
             console.log("You lose! Scissors beats paper");
             computerWins = ++computerWins;
         }
         else{
             console.log("It's a tie! play again");
+            messageDiv.textContent ="It's a tie! play again";
         }
     }
 }
@@ -118,8 +129,10 @@ userButtons.forEach((button) =>{
  })
 
  const resultDiv = document.querySelector('.result');
- let resultString = "Computer wins: " + computerWins + " Your wins: " + userWins;
  resultDiv.textContent = "Computer wins: " + computerWins + " Your wins: " + userWins;
  const winnerDiv = document.querySelector('.winner');
  const stopDiv = document.querySelector('.stop');
+ const choicDiv = document.querySelector('.choice');
+ const messageDiv = document.querySelector('.message');
+
 
