@@ -9,6 +9,7 @@ let computerInput;
 let userInput;
 let computerWins = 0;
 let userWins = 0;
+let stopItCounter = 0;
 
 function getComputerChoice(){
     randomNum = Math.floor(Math.random()*100);
@@ -21,24 +22,7 @@ function getComputerChoice(){
     else{
         computerInput = "scissors";
     }
-    console.log("Computer: ", computerInput);
 }
-
-const userButtons = document.querySelectorAll('button');
-console.log(userButtons);
-
-
-userButtons.forEach((button) =>{
-    button.addEventListener("click", function storeInput(){
-        userInput = button.value;
-        userInput = userInput.toLowerCase();
-        console.log(userInput);
-        button.value = "";
-        //getComputerChoice(); need to fix, userInput doesn't get stored
-        //chooseWinner();
-       //console.log("Computer wins: ", computerWins, "Your wins: ", userWins);
-    })
- })
 
 /* function getUserChoice(){
     userInput = prompt("Enter your choice: ");
@@ -96,20 +80,46 @@ function chooseWinner(){
     }
 }
 
-/* function game(){
-    while(computerWins < 3 && userWins < 3){
+function game(){
+    // while(computerWins < 3 && userWins < 3){
         getComputerChoice();
-        getUserChoice();
+        // getUserChoice();
         chooseWinner();
-        console.log(
-        "Computer wins: ", computerWins, "Your wins: ", userWins);
-    }
+        resultDiv.textContent = "Computer wins: " + computerWins + " Your wins: " + userWins;
+        // }
     if (computerWins == 3){
         console.log("The machine has bested you!");
+        winnerDiv.textContent = "The machine has bested you!";
     }
-    else{
+    else if(userWins == 3){
         console.log("You bested the machine! Congratulations.");
+        winnerDiv.textContent = "You bested the machine! Congratulations.";
+
     }
 }
-game();
-*/
+
+const userButtons = document.querySelectorAll('button');
+console.log(userButtons);
+
+
+userButtons.forEach((button) =>{
+    button.addEventListener("click", function storeInput(){
+        userInput = button.value;
+        userInput = userInput.toLowerCase();
+        console.log(userInput);
+        if(userWins < 3 && computerWins < 3){
+            game();
+        }
+        else{
+            stopDiv.textContent = "Stop it. It's over.", stopItCounter;
+            stopItCounter = ++stopItCounter;
+        }
+    })
+ })
+
+ const resultDiv = document.querySelector('.result');
+ let resultString = "Computer wins: " + computerWins + " Your wins: " + userWins;
+ resultDiv.textContent = "Computer wins: " + computerWins + " Your wins: " + userWins;
+ const winnerDiv = document.querySelector('.winner');
+ const stopDiv = document.querySelector('.stop');
+
